@@ -11,7 +11,7 @@ app.post('/shorten', (req, res) => {
     const longUrl = req.body.longUrl;
     const shortUrl = Math.random().toString(36).substring(2, 8); // ランダムな文字列を生成
     shortUrls[shortUrl] = longUrl;
-    res.json({ shortUrl: `https://yourdomain.com/${shortUrl}` });
+    res.json({ shortUrl: `https://u.l4qzix.f5.si./${shortUrl}` });
 });
 
 // 短縮URLにアクセスしたときのリダイレクト
