@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL短縮サービス</title>
+</head>
+<body>
+    <h1>URL短縮サービス</h1>
+    <form id="urlForm">
+        <input type="url" id="longUrl" placeholder="長いURLを入力" required>
+        <button type="submit">短縮</button>
+    </form>
+    <p id="shortenedUrl"></p>
+
+    <script>
+        document.getElementById('urlForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const longUrl = document.getElementById('longUrl').value;
+            
+            fetch('/shorten', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ longUrl: longUrl }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('shortenedUrl').textContent = `短縮URL: ${data.shortUrl}`;
+            });
+        });
+    </script>
+</body>
+</html>
