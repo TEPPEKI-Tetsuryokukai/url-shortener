@@ -1,0 +1,171 @@
+body {
+    font-family: 'MS Gothic';
+    background-image: url('background.png'); /* 背景画像のパス */
+    background-size: cover; /* 画像を画面全体に拡大縮小 */
+    background-repeat: no-repeat; /* 画像を繰り返さない */
+    background-position: center center; /* 画像を中央に配置 */
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+
+.taskbar {
+    background-color: #C0C0C0;
+    border-bottom: 2px solid #808080;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.start-button {
+    background-image: url("start.jpg");
+    background-color: #000080;
+    color: white;
+    border: 2px solid #000;
+    padding: 2px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.taskbar-items {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.taskbar-items a {
+    color: black;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.taskbar-items a:hover {
+    text-decoration: underline;
+}
+
+.clock {
+    margin-right: 10px;
+    font-size: 14px;
+    font-family: 'MS Gothic', 'MS Sans Serif', Arial, sans-serif;
+    margin-left: auto; /* Aligns clock to the right */
+}
+
+.window {
+    border: 2px solid #000;
+    background-color: #C0C0C0;
+    box-shadow: 4px 4px 0 #808080;
+    width: 800px;
+    height: 600px;
+    margin: 50px auto;
+    margin-top: 80px; /* Adjusted for taskbar */
+    display: flex;
+    flex-direction: column;
+}
+
+.title-bar {
+    background-color: #000080;
+    color: #fff;
+    padding: 4px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-bar button {
+    background-color: #C0C0C0;
+    border: 1px solid #000;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    font-family: 'MS Gothic', 'MS Sans Serif', Arial, sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    padding: 0;
+}
+
+.title-bar button.close {
+    color: black;
+}
+
+.title-bar button.minimize {
+    color: black;
+}
+
+.title-bar button.maximize {
+    color: black;
+}
+
+.menu-bar {
+    display: flex;
+    padding: 5px;
+    background-color: #C0C0C0;
+}
+
+.menu-bar span,
+.menu-bar a {
+    margin-right: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menu-bar span:hover,
+.menu-bar a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    padding: 10px;
+    background-color: #FFF;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+footer {
+    text-align: center;
+    padding: 5px;
+    background-color: #C0C0C0;
+    border-top: 2px solid #808080;
+    font-size: 12px;
+}
+
+footer img {
+    margin-bottom: 10px;
+}
+
+.url-shortener-form input {
+    padding: 5px;
+    margin: 10px 0;
+    font-size: 14px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+}
+
+.url-shortener-form button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #000080;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.url-shortener-form button:hover {
+    background-color: #333;
+}
