@@ -2,34 +2,66 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL短縮サービス</title>
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>URL短縮サービス</h1>
-    <form id="urlForm">
-        <input type="url" id="longUrl" placeholder="長いURLを入力" required>
-        <button type="submit">短縮</button>
-    </form>
-    <p id="shortenedUrl"></p>
+    <div class="taskbar">
+        <div onclick="window.location.href='index.html';" class="start-button">
+            ︎︎︎︎︎︎︎︎︎︎︎︎︎︎︎
+        </div>
+        <div class="taskbar-items">
+            <a href="https://discord.com/users/540151088293085195" style="text-decoration:none;" class="discord">Discord</a> ︎︎
+            <a href="https://t.me/l4qzix" style="text-decoration:none;" class="telegram">Telegram</a> ︎︎
+            <a href="https://x.com/l4qzix" style="text-decoration:none;" class="twitter">Twitter</a>
+        </div>
+        <div id="clock" class="clock"></div>
+    </div>
+
+    <div class="window">
+        <div class="title-bar">
+            <span>URL Shortener</span>
+            <div>
+                <button class="close">─</button>
+                <button class="minimize">☐</button>
+                <button class="maximize">×</button>
+            </div>
+        </div>
+
+        <div class="menu-bar">
+            <a href="about.html" class="aboutme" style="text-decoration:none;">About</a>
+            <span>Help</span>
+        </div>
+
+        <div class="content">
+            <h1>Shorten Your URL</h1>
+            <p>URL短縮サービスにようこそ。リンクを入力し、短縮されたURLをゲットしましょう。</p>
+
+            <!-- URL Shortener Form -->
+            <div class="url-shortener-form">
+                <input type="url" id="url-input" placeholder="URLを入力してください">
+                <button onclick="shortenUrl()">短縮する</button>
+                <p id="shortened-url"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <img src="https://count.getloli.com/@l4qzix?name=l4qzix&theme=kasuterura-3" alt=":l4qzix" /><br>
+        &copy; l4qzix All Rights Reserved.
+    </footer>
 
     <script>
-        document.getElementById('urlForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const longUrl = document.getElementById('longUrl').value;
-            
-            fetch('/shorten', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ longUrl: longUrl }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('shortenedUrl').textContent = `短縮URL: ${data.shortUrl}`;
-            });
-        });
+        function shortenUrl() {
+            const urlInput = document.getElementById('url-input').value;
+            if (urlInput) {
+                const shortenedUrl = `https://short.url/${btoa(urlInput).substring(0, 6)}`;
+                document.getElementById('shortened-url').innerText = `短縮されたURL: ${shortenedUrl}`;
+            } else {
+                alert("URLを入力してください");
+            }
+        }
     </script>
 </body>
 </html>
